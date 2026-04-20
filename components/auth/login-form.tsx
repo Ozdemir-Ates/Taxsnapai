@@ -4,90 +4,109 @@ import { FormError } from "@/components/forms/error"
 import { FormInput } from "@/components/forms/simple"
 import { Button } from "@/components/ui/button"
 import { authClient } from "@/lib/auth-client"
+import config from "@/lib/config"
 import { useRouter } from "next/navigation"
-import { useState } from "react"
+import React, { useState } from "react"
 
 export function LoginForm({ defaultEmail }: { defaultEmail?: string }) {
   const [email, setEmail] = useState(defaultEmail || "")
-  const [otp, setOtp] = useState("")
-  const [isOtpSent, setIsOtpSent] = useState(false)
+  const [password, setPassword] = useState("")
+  const [name, setName] = useState("")
+  const [isRegistering, setIsRegistering] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const router = useRouter()
 
-  const handleSendOtp = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
     setError(null)
 
     try {
-      const result = await authClient.emailOtp.sendVerificationOtp({
-        email,
-        type: "sign-in",
-      })
-      if (result.error) {
-        setError(result.error.message || "Failed to send the code")
-        return
-      }
-      setIsOtpSent(true)
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to send the code")
-    } finally {
-      setIsLoading(false)
-    }
-  }
-
-  const handleVerifyOtp = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsLoading(true)
-    setError(null)
-
-    try {
-      const result = await authClient.signIn.emailOtp({
-        email,
-        otp,
-      })
-      if (result.error) {
-        setError("The code is invalid or expired")
-        return
+      if (isRegistering) {
+        const result = await authClient.signUp.email({
+          email,
+          password,
+          name,
+        })
+        if (result.error) {
+          setError(result.error.message || "Failed to create account")
+          setIsLoading(false)
+          return
+        }
+      } else {
+        const result = await authClient.signIn.email({
+          email,
+          password,
+        })
+        if (result.error) {
+          setError(result.error.message || "Invalid credentials")
+          setIsLoading(false)
+          return
+        }
       }
 
       router.push("/dashboard")
+      router.refresh()
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to verify the code")
-    } finally {
+      setError(err instanceof Error ? err.message : "Authentication failed")
       setIsLoading(false)
     }
   }
 
   return (
-    <form onSubmit={isOtpSent ? handleVerifyOtp : handleSendOtp} className="flex flex-col gap-4 w-full">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full">
+      {isRegistering && (
+        <FormInput
+          title="Name"
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required={isRegistering}
+          disabled={isLoading}
+        />
+      )}
+      
       <FormInput
         title="Email"
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
-        disabled={isOtpSent}
+        disabled={isLoading}
       />
 
-      {isOtpSent && (
-        <FormInput
-          title="Check your email for the verification code"
-          type="text"
-          value={otp}
-          onChange={(e) => setOtp(e.target.value)}
-          required
-          maxLength={6}
-          pattern="[0-9]{6}"
-        />
-      )}
+      <FormInput
+        title="Password"
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        required
+        disabled={isLoading}
+      />
 
       <Button type="submit" disabled={isLoading}>
-        {isLoading ? "Loading..." : isOtpSent ? "Verify Code" : "Enter"}
+        {isLoading ? "Please wait..." : isRegistering ? "Sign Up" : "Sign In"}
       </Button>
 
       {error && <FormError className="text-center">{error}</FormError>}
+
+      {!config.auth.disableSignup && (
+        <div className="text-center mt-2">
+          <button
+            type="button"
+            className="text-sm text-blue-600 hover:underline"
+            onClick={() => {
+              setIsRegistering(!isRegistering)
+              setError(null)
+            }}
+          >
+            {isRegistering
+              ? "Already have an account? Sign In"
+              : "Don't have an account? Sign Up"}
+          </button>
+        </div>
+      )}
     </form>
   )
 }
