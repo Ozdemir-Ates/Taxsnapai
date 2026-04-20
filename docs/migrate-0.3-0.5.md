@@ -11,7 +11,7 @@ Here's how to migrate properly:
 ```yaml
 services:
   app:
-    image: ghcr.io/vas3k/taxhacker:v0.3.0
+    image: ghcr.io/Ozdemir-Ates/taxhacker:v0.3.0
     ports:
       - "7331:7331"
       
@@ -36,7 +36,7 @@ Update your docker compose to latest version again.
 ```yaml
 services:
   app:
-    image: ghcr.io/vas3k/taxhacker:latest
+    image: ghcr.io/Ozdemir-Ates/taxhacker:latest
     ports:
       - "7331:7331"
       

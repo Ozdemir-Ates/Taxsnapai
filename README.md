@@ -6,14 +6,14 @@
 
 # TaxHacker: Self-Hosted AI Accounting
 
-[![GitHub Stars](https://img.shields.io/github/stars/vas3k/TaxHacker?color=ffcb47&labelColor=black&style=flat-square)](https://github.com/vas3k/TaxHacker/stargazers)
-[![License](https://img.shields.io/badge/license-MIT-ffcb47?labelColor=black&style=flat-square)](https://github.com/vas3k/TaxHacker/blob/main/LICENSE)
-[![Support Us](https://img.shields.io/badge/-Donate-f04f88?logo=githubsponsors&logoColor=white&style=flat-square)](https://vas3k.com/donate/)
+[![GitHub Stars](https://img.shields.io/github/stars/Ozdemir-Ates/Taxsnapai?color=ffcb47&labelColor=black&style=flat-square)](https://github.com/Ozdemir-Ates/Taxsnapai/stargazers)
+[![License](https://img.shields.io/badge/license-MIT-ffcb47?labelColor=black&style=flat-square)](https://github.com/Ozdemir-Ates/Taxsnapai/blob/main/LICENSE)
+[![Support Us](https://img.shields.io/badge/-Donate-f04f88?logo=githubsponsors&logoColor=white&style=flat-square)](https://taxsnapai.com/donate/)
 
 </div>
 
 > [!NOTE]  
-> ☝️ I'm currently looking for a job! Particularly interested in companies in Berlin or remote positions in Germany. Here's [my CV](https://raw.githubusercontent.com/vas3k/vas3k/master/cv.pdf) and [Linkedin profile](https://www.linkedin.com/in/vas3k/). Thank you 🙏
+> ☝️ I'm currently looking for a job! Particularly interested in companies in Berlin or remote positions in Germany. Here's [my CV](https://raw.githubusercontent.com/Ozdemir-Ates/Ozdemir-Ates/master/cv.pdf) and [Linkedin profile](https://www.linkedin.com/in/Ozdemir-Ates/). Thank you 🙏
 
 TaxHacker is a self-hosted accounting app designed for freelancers, indie-hackers, and small businesses who want to save time and automate expense and income tracking using the power of modern AI.
 
@@ -118,7 +118,7 @@ Keep complete control over your financial data with local storage and self-hosti
 TaxHacker can be easily self-hosted on your own infrastructure for complete control over your data and application environment. We provide a [Docker image](./Dockerfile) and [Docker Compose](./docker-compose.yml) setup that makes deployment simple:
 
 ```bash
-curl -O https://raw.githubusercontent.com/vas3k/TaxHacker/main/docker-compose.yml
+curl -O https://raw.githubusercontent.com/Ozdemir-Ates/Taxsnapai/main/docker-compose.yml
 
 docker compose up
 ```
@@ -140,7 +140,7 @@ Example custom configuration:
 ```yaml
 services:
   app:
-    image: ghcr.io/vas3k/taxhacker:latest
+    image: ghcr.io/Ozdemir-Ates/taxhacker:latest
     ports:
       - "7331:7331"
     environment:
@@ -180,7 +180,7 @@ Set up your local development environment:
 
 ```bash
 # Clone the repository
-git clone https://github.com/vas3k/TaxHacker.git
+git clone https://github.com/Ozdemir-Ates/Taxsnapai.git
 cd TaxHacker
 
 # Install dependencies
@@ -220,9 +220,9 @@ No AI-slop PRs. Please open a new Issue and discuss the details with maintainers
 
 ## ❤️ Support the Project
 
-If TaxHacker has helped you save time or manage your finances better, consider supporting its development! Your donations help us maintain the project, add new features, and keep it free and open source. Every contribution helps ensure we can keep improving and maintaining this tool for the community: <https://vas3k.com/donate/>
+If TaxHacker has helped you save time or manage your finances better, consider supporting its development! Your donations help us maintain the project, add new features, and keep it free and open source. Every contribution helps ensure we can keep improving and maintaining this tool for the community: <https://taxsnapai.com/donate/>
 
-[![Thank the TaxHacker devs](https://img.shields.io/badge/❤️-donate%20to%20Taxhacker%20devs-f08080?labelColor=black&style=for-the-badge)](https://vas3k.com/donate/)
+[![Thank the TaxHacker devs](https://img.shields.io/badge/❤️-donate%20to%20Taxhacker%20devs-f08080?labelColor=black&style=for-the-badge)](https://taxsnapai.com/donate/)
 
 ## 📄 License
 

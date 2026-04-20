@@ -1,6 +1,6 @@
 services:
   app:
-    image: ghcr.io/vas3k/taxsnapai:latest
+    image: ghcr.io/Ozdemir-Ates/taxsnapai:latest
     container_name: taxsnapai_app
     networks:
       - taxsnapai_network

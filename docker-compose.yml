@@ -1,6 +1,6 @@
 services:
   app:
-    image: ghcr.io/vas3k/taxhacker:latest
+    build: .
     ports:
       - "7331:7331"
     env_file:

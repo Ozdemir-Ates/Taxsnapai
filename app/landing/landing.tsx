@@ -56,7 +56,7 @@ export default function LandingPage() {
                 Get Started ✨
               </Link>
               <Link
-                href="mailto:me@vas3k.com"
+                href="mailto:me@taxsnapai.com"
                 className="px-8 py-4 border-2 border-gradient-to-r from-pink-300 to-indigo-300 text-gray-800 font-bold rounded-full hover:bg-gradient-to-r hover:from-pink-50 hover:to-indigo-50 transition-all duration-300 hover:scale-105 bg-white/80"
               >
                 Contact Us 💌
@@ -349,7 +349,7 @@ export default function LandingPage() {
                 </li>
               </ul>
               <Link
-                href="https://github.com/vas3k/TaxSnapAI"
+                href="https://github.com/Ozdemir-Ates/Taxsnapai"
                 target="_blank"
                 className="block w-full text-center px-6 py-4 bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-bold rounded-full hover:from-violet-700 hover:to-indigo-700 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-110"
               >
@@ -523,7 +523,7 @@ export default function LandingPage() {
               <div className="flex flex-col gap-4 max-w-md mx-auto">
                 <div className="flex flex-wrap items-center justify-center gap-4">
                   <a
-                    href="https://github.com/vas3k/TaxSnapAI"
+                    href="https://github.com/Ozdemir-Ates/Taxsnapai"
                     target="_blank"
                     rel="noreferrer"
                     className="px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium rounded-full hover:opacity-90 transition-all shadow-lg shadow-purple-500/20"
@@ -541,10 +541,10 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto text-center text-sm text-gray-600">
           Made with ❤️ in Berlin by{" "}
           <Link
-            href="https://github.com/vas3k"
+            href="https://github.com/Ozdemir-Ates"
             className="underline font-semibold hover:text-pink-600 transition-colors"
           >
-            @vas3k
+            @Ozdemir-Ates
           </Link>
         </div>
 
@@ -579,7 +579,7 @@ export default function LandingPage() {
                 Cookie Policy
               </Link>
               <Link
-                href="https://github.com/vas3k/TaxSnapAI"
+                href="https://github.com/Ozdemir-Ates/Taxsnapai"
                 target="_blank"
                 className="text-sm text-gray-600 hover:text-pink-600 font-medium transition-colors"
               >
